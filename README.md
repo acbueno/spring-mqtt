@@ -1,6 +1,7 @@
 # Spring MQTT Project
 
-Welcome to the Spring MQTT Project! This project demonstrates how to use Spring Boot with MQTT to simulate automotive electronic injection system sensors, specifically a rotation sensor and a temperature sensor. The sensors send MQTT messages to a Mosquitto broker, and a consumer subscribes to these messages for processing.
+Welcome to the Spring MQTT Project! This project demonstrates how to use Spring Boot with MQTT to simulate automotive electronic injection system sensors, specifically a rotation sensor and a temperature sensor. 
+The sensors send MQTT messages to a Mosquitto broker, and a consumer subscribes to these messages for processing.
 
 ## Getting Started
 
