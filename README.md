@@ -5,13 +5,15 @@ Welcome to the Spring MQTT Project! This project demonstrates how to use Spring 
 ## Getting Started
 
 ### Prerequisites
-
 Before you begin, ensure you have the following installed on your system:
 
-- [![Java 8 or later](https://www.oracle.com/favicon.ico)](https://www.oracle.com/java/technologies/javase-downloads.html) 
-- [![Maven](https://maven.apache.org/images/logos/maven-feather.png)](https://maven.apache.org/install.html) 
-- [![Docker](https://www.docker.com/sites/default/files/d8/2019-07/Moby-logo.png)](https://www.docker.com/get-started)
-- [![Docker Compose](https://docs.docker.com/icons/icon-compose-32x32.png)](https://docs.docker.com/compose/install/) 
+- [![Java](https://img.icons8.com/color/48/000000/java-coffee-cup-logo--v1.png)](https://www.oracle.com/java/technologies/javase-downloads.html) [Java](https://www.oracle.com/java/technologies/javase-downloads.html)
+- [![Maven](https://favicon.io/favicon.ico?url=https://maven.apache.org/install.html)](https://maven.apache.org/install.html) [Maven](https://maven.apache.org/install.html)
+- [![Docker](https://www.docker.com/favicon.ico)](https://www.docker.com/get-started) [Docker](https://www.docker.com/get-started)
+- [Docker Compose](https://docs.docker.com/compose/install/)
+
+
+- 
 ### Installation
 
 Follow these steps to set up the project:
