@@ -1,0 +1,3 @@
+br/acbueno/rotation/sensor/App.class
+br/acbueno/rotation/sensor/device/RotationSensor.class
+br/acbueno/rotation/sensor/device/config/ConnectionBroker.class
