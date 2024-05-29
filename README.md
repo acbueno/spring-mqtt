@@ -62,7 +62,7 @@ You can run the rotation sensor and temperature sensor simulators to start publi
 4.  **Start the the trottle position sensor:**
     ```bash
     mvn exec:java -Dexec.mainClass="br.acbueno.maf.trottle.postion.sensor.App"
-  ```
+    ```
 
 ### Consuming the Messages
 
