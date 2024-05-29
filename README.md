@@ -1,6 +1,6 @@
 # Spring MQTT Project
 
-Welcome to the Spring MQTT Project! This project demonstrates how to use Spring Boot with MQTT to simulate automotive electronic injection system sensors, specifically a rotation sensor and a temperature sensor. 
+Welcome to the Spring MQTT Project! This project demonstrates how to use Spring Boot with MQTT to simulate automotive electronic injection system sensors, specifically a rotation sensor, maf sensor, trottle postion sensor  and a temperature sensor. 
 The sensors send MQTT messages to a Mosquitto broker, and a consumer subscribes to these messages for processing.
 
 ## Getting Started
@@ -47,14 +47,22 @@ You can run the rotation sensor and temperature sensor simulators to start publi
 1. **Start the rotation sensor simulator:**
 
     ```bash
-    mvn exec:java -Dexec.mainClass="br.acbueno.rotation.sensor.RotationSensor"
+    mvn exec:java -Dexec.mainClass="br.acbueno.rotation.sensor.App"
     ```
 
 2. **Start the temperature sensor simulator:**
 
     ```bash
-    mvn exec:java -Dexec.mainClass="br.acbueno.temperature.sensor.TemperatureSensor"
+    mvn exec:java -Dexec.mainClass="br.acbueno.temperature.sensor.App"
     ```
+3. **Start the maf sensor simulator:**
+    ```bash
+     mvn exec:java -Dexec.mainClass="br.acbueno.maf.sensor.App"
+    ```
+4.  **Start the the trottle position sensor:**
+    ```bash
+    mvn exec:java -Dexec.mainClass="br.acbueno.maf.trottle.postion.sensor.App"
+  ```
 
 ### Consuming the Messages
 
