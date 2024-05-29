@@ -16,6 +16,8 @@ public class MqttConsumerService implements MqttCallback {
 
   private static final String TEMPERATURE_TOPIC = "sensors/temperature";
   private static final String ROTATION_TOPIC = "sensors/rotation";
+  private static final String MAF_SENSOR = "sensors/maf";
+  private static final String TROTTLE_POSITION = "sensors/trottle";
   private static final Logger LOGGER = LoggerFactory.getLogger(MqttConsumerService.class);
 
   @Autowired
@@ -26,6 +28,8 @@ public class MqttConsumerService implements MqttCallback {
     mqttClient.setCallback(this);
     mqttClient.subscribe(TEMPERATURE_TOPIC);
     mqttClient.subscribe(ROTATION_TOPIC);
+    mqttClient.subscribe(MAF_SENSOR);
+    mqttClient.subscribe(TROTTLE_POSITION);
   }
 
   @Override

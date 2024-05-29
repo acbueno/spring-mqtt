@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Built-By: anderson
+Build-Jdk: 17.0.10
+Main-Class: br.acbueno.trottle.position.sensor.App
+Created-By: Maven Integration for Eclipse
+
