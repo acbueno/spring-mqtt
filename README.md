@@ -76,6 +76,8 @@ Here's an overview of the project's structure:
 
 - src/main/java/br/acbueno/rotation/sensor/RotationSensor.java: Simulates a rotation sensor that publishes rotation data to an MQTT topic.
 - src/main/java/br/acbueno/temperature/sensor/TemperatureSensor.java: Simulates a temperature sensor that publishes temperature data to an MQTT topic.
+- src/main/java/br/acbueno/maf/sensor/MafSensor.java: Simulates air flow meter sensor that publishes air flow meter data to an MQTT topic.
+- src/main/java/br/acbueno/trottle/position/sensor/TrottlePostionSensor.java: Simulates accelerator throttle position sensor that publishes throttle position data to an MQTT topic.
 - src/main/java/br/acbueno/mqtt/consumer/MessageConsumer.java: Subscribes to the MQTT topics and processes the incoming sensor data.
 - src/main/java/br/acbueno/mqtt/config/ConnectionBroker.java: Manages the MQTT connection configuration, including broker URL, client ID, username, and password.
 
