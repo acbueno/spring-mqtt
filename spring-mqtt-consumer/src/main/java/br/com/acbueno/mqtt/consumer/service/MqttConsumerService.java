@@ -1,10 +1,14 @@
 package br.com.acbueno.mqtt.consumer.service;
 
+
+import java.util.concurrent.TimeUnit;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
+import org.influxdb.InfluxDB;
+import org.influxdb.dto.Point;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +25,9 @@ public class MqttConsumerService implements MqttCallback {
   private static final Logger LOGGER = LoggerFactory.getLogger(MqttConsumerService.class);
 
   @Autowired
+  private InfluxDB influxDB;
+
+  @Autowired
   private MqttClient mqttClient;
 
   @PostConstruct
@@ -35,23 +42,54 @@ public class MqttConsumerService implements MqttCallback {
   @Override
   public void connectionLost(Throwable cause) {
     LOGGER.warn("Connection Lost {}", cause.getMessage());
-    // System.out.println("Connection Lost: " + cause.getMessage());
-
   }
 
   @Override
   public void messageArrived(String topic, MqttMessage message) throws Exception {
-    LOGGER.info("Message arrived. Topic {} MEssage {}", topic, new String(message.getPayload()));
-    // System.out
-    // .println("Message arrived. Topic " + topic + "Message " + new String(message.getPayload()));
-
+    String payload = new String(message.getPayload());
+    Point point = null;
+    //@formatter:off
+    switch (topic)  {
+      case TEMPERATURE_TOPIC: {
+        int temperature = Integer.parseInt(payload);
+        point = Point.measurement("temperature")
+            .time(System.currentTimeMillis(), TimeUnit.MICROSECONDS)
+             .addField("value", temperature)
+              .build();
+        break;
+      }
+      case ROTATION_TOPIC: {
+        int rotation = Integer.parseInt(payload);
+        point = Point.measurement("rotation")
+            .time(System.currentTimeMillis(), TimeUnit.MILLISECONDS)
+            .addField("value", rotation).build();
+          break;
+        }
+      case MAF_SENSOR: {
+        double maf = Double.parseDouble(payload);
+        point = Point.measurement("maf")
+            .time(System.currentTimeMillis(), TimeUnit.MILLISECONDS)
+            .addField("value", maf)
+            .build();
+        break;
+      }
+      case TROTTLE_POSITION: {
+        int trottle = Integer.parseInt(payload);
+        point = Point.measurement("trottle_position")
+            .time(System.currentTimeMillis(), TimeUnit.MILLISECONDS)
+            .addField("value", trottle).build();
+        break;
+      }
+    }
+    //@foramatter:on
+    if(point!=null) {
+      influxDB.write(point);
+    }
+    LOGGER.info("Message arrived. Topic {} MEssage {}", topic, payload);
   }
 
   @Override
   public void deliveryComplete(IMqttDeliveryToken token) {
-    // TODO Auto-generated method stub
   }
-
-
 
 }

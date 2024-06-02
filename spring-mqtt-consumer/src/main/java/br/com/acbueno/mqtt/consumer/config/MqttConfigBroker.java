@@ -21,10 +21,11 @@ public class MqttConfigBroker {
     MqttConnectOptions options = new MqttConnectOptions();
     options.setUserName(USER_NAME);
     options.setPassword(PASSWORD.toCharArray());
+    options.setAutomaticReconnect(true);
     options.setCleanSession(true);
     options.setConnectionTimeout(10);
     options.setKeepAliveInterval(20);
-    options.setAutomaticReconnect(true);
+    options.setMqttVersion(MqttConnectOptions.MQTT_VERSION_3_1_1);
     client.connect(options);
 
     return client;
